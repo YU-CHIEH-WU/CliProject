@@ -1,12 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="col s12 z-depth-2">
-    <div class="row">
-        <h1>
-            Basic CRUD Test
-        </h1>
+<div class="container">
+    <div class="row content z-depth-2">
         <div class="col s12">
-            <div class="col s12 right-align">
-                <button (click)="doAdd()" class="waves-effect waves-light btn-flat">ADD</button>
+            <h1>
+                Basic CRUD Test
+            </h1>
+        </div>
+        <div class="col s12">
+            <div class="col s12 right-align" *ngIf="isList">
+                <button (click)="doAdd()" class="waves-effect waves-light btn-flat text-blue">ADD</button>
             </div>
             <div class="col s12" *ngIf="!isList">
                 <div class="row">
@@ -19,13 +21,13 @@
                         <label [class.active]="isEdit" for="full_name">Full Name</label>
                     </div>
                     <div class="col s12 text-ceter">
-                        <button (click)="reset()" class="waves-effect waves-light btn-flat">BACK</button>
+                        <button (click)="reset()" class="waves-effect waves-light btn-flat text-grey">BACK</button>
                         <button *ngIf="isAdd" (click)="doAddDone()" class="waves-effect waves-light btn-flat text-teal">DONE</button>
                         <button *ngIf="isEdit" (click)="doEditDone()" class="waves-effect waves-light btn-flat text-teal">DONE</button>
                     </div>
                 </div>
             </div>
-            <table class="highlight" *ngIf="isList">
+            <table *ngIf="isList">
                 <thead>
                     <tr>
                         <th>No</th>

@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul.nav-bar {
+    padding-left: 0;
+    list-style-type: none;
+    >li {
+        list-style-type: none;
+        float: left;
+        transition: background-color .3s;
+        padding: 0;
+        >a {
+            transition: background-color .3s;
+            font-size: 1rem;
+            color: white;
+            display: block;
+            padding: 0 15px;
+            line-height: 64px;
+            cursor: pointer;
+            &:hover {
+                background-color: #AD1457;
+            }
+        }
+    }
+}
+
+.main {
+    margin: 16px;
+}
+
+.content {
+    background-color: #414141;
+}
+
+.card-content {
+    margin: 24px;
+    padding: 16px;
+    min-height: 240px;
+}
+
+.btn-flat {
+    color: white;
+    transition: color .6s;
+}
+
+.text-grey:hover {
+    color: #eceff1;
+}
+
+.text-blue:hover {
+    color: #00bcd4;
+}
+
+.text-yellow:hover {
+    color: #fbc02d;
+}
+
+.text-red:hover {
+    color: #e53935;
+}
+
+.text-teal:hover {
+    color: #009688;
+}
