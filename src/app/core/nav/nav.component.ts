@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../../service/auth/auth.service';
 @Component({
     selector: 'app-nav',
     templateUrl: './nav.component.html',
@@ -8,16 +8,26 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
     clickedTab: string;
-    constructor(private router: Router) { }
+    loginAccount: string;
+    loginPassword: string;
+    isLoggedIn = false;
+    constructor(private router: Router, private authService: AuthService) { }
 
     ngOnInit() {
+        this.isLoggedIn = this.authService.isLoggedIn();
         this.router.events.subscribe((res) => {
             this.clickedTab = this.router.url;
-            console.log(this.clickedTab);
         });
     }
     clickTab(clickedTab) {
         this.clickedTab = clickedTab;
-        console.log(this.clickedTab);
+    }
+    doLogin() {
+        if (this.authService.doLogin(this.loginAccount, this.loginPassword)) {
+            // success
+        } else {
+            // fail
+        }
+        this.router.navigateByUrl('home');
     }
 }

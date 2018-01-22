@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+/* variable */
+
 $dark: #323232;
 $light-dark :#414141;
 $text-dark:#292929;
@@ -7,6 +10,12 @@ $pink80:rgba(240, 98, 146, 0.8);
 $pink60:rgba(240, 98, 146, 0.6);
 $pink20:rgba(240, 98, 146, 0.2);
 $pink:#f06292;
+
+/**/
+
+
+/* basic elements*/
+
 body {
     margin: 0;
     background-color: $dark;
@@ -15,6 +24,12 @@ body {
 a {
     text-decoration: none;
 }
+
+
+/**/
+
+
+/* materialize */
 
 .container {
     @media only screen and (min-width: 993px) {
@@ -25,14 +40,14 @@ a {
 .side-nav.fixed {
     background-color: $light-dark;
     width: 270px;
-    li {
+    .menu {
         .active {
             background-color: $pink80;
             &:hover {
                 background-color: $pink80;
             }
         }
-        >a {
+        a {
             color: whitesmoke;
             &:hover {
                 background-color: $pink60;
@@ -53,6 +68,56 @@ a {
     }
 }
 
+.btn-flat {
+    color: white;
+    transition: color .6s;
+}
+
+.waves-effect.waves-pink .waves-ripple {
+    background-color: $pink80;
+}
+
+.side-nav .collapsible-header,
+.side-nav.fixed .collapsible-header {
+    padding: 0 32px;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid $pink;
+    box-shadow: 0 1px 0 0 $pink;
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: $pink;
+}
+
+
+/**/
+
 .icon-dark {
     color: $text-dark;
 }
@@ -71,20 +136,6 @@ a {
     padding: 16px;
     min-height: 240px;
     background-color: $light-dark;
-}
-
-.btn-flat {
-    color: white;
-    transition: color .6s;
-}
-
-.waves-effect.waves-pink .waves-ripple {
-    background-color: $pink80;
-}
-
-.side-nav .collapsible-header,
-.side-nav.fixed .collapsible-header {
-    padding: 0 32px;
 }
 
 .text-pink:hover {

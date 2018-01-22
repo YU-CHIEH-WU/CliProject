@@ -1,31 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-topic',
   templateUrl: './topic.component.html',
-  styleUrls: ['./topic.component.scss'],
-  animations: [
-
-    trigger('itemList', [
-      transition('* => *', [
-        query(':enter', stagger('300ms', [
-          animate('.6s ease-in', keyframes([
-            style({ opacity: 0, transform: 'translateY(-75%)', offset: 0 }),
-            style({ opacity: 1, transform: 'translateY(0)', offset: 1 })
-          ]))
-        ]), { optional: true }),
-        query(':leave', stagger('300ms', [
-          animate('.6s ease-in', keyframes([
-            style({ opacity: 1, transform: 'translateY(0)', offset: 0 }),
-            style({ opacity: 0, transform: 'translateY(-75%)', offset: 1 })
-          ]))
-        ]), { optional: true })
-      ])])
-
-  ]
+  styleUrls: ['./topic.component.scss']
 })
 export class TopicComponent implements OnInit {
   apiUrl: string = String('https://api.github.com/users/mralexgray/repos');
@@ -34,7 +13,7 @@ export class TopicComponent implements OnInit {
   isList: Boolean;
   isAdd: Boolean;
   isEdit: Boolean;
-  constructor(private http: Http, private route: ActivatedRoute, private _data: UserService) { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
     this.doGetAll();

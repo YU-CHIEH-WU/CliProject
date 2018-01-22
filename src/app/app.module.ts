@@ -13,7 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { CodewarModule } from './codewar/codewar.module';
 import { TopicModule } from './topic/topic.module';
 
-import { UserService } from './user.service';
+import { AuthService } from './service/auth/auth.service';
+import { UserService } from './service/auth/user/user.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { UserService } from './user.service';
     TopicModule,
     CodewarModule
   ],
-  providers: [HttpModule, UserService],
+  providers: [HttpModule, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './service/auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { CodewarComponent } from './codewar/codewar.component';
 import { TopicComponent } from './topic/topic.component';
@@ -19,7 +20,13 @@ const routes: Routes = [
   },
   {
     path: 'topic',
-    component: TopicComponent
+    component: TopicComponent,
+    canActivate: [AuthGuard]
+  },
+  // change to 404
+  {
+    path: '**',
+    component: HomeComponent
   }
 ];
 

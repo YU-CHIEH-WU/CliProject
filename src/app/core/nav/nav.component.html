@@ -6,6 +6,18 @@
                     <p>Not Auth User Area</p>
                     <i class="large material-icons">account_circle</i>
                     <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input [(ngModel)]="loginAccount" id="account" type="text" class="validate">
+                                <label for="account">Account</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input [(ngModel)]="loginPassword" id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
                         <div class="col s5 ">
                             <a href="" class="waves-effect waves-light btn-flat text-teal">Login</a>
                         </div>
@@ -17,8 +29,8 @@
             </div>
         </div>
     </li>
-    <li class="bold"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-pink">Home</a></li>
-    <li class="no-padding">
+    <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-pink">Home</a></li>
+    <li class="no-padding menu">
         <ul class="collapsible collapsible-accordion">
             <li class="bold"><a class="collapsible-header waves-effect waves-pink">Topic</a>
                 <div class="collapsible-body">
