@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+$dark: #323232;
+$light-dark :#414141;
 body {
     margin: 0;
+    background-color: $dark;
 }
 
 a {
@@ -37,7 +39,7 @@ ul.nav-bar {
 }
 
 .content {
-    background-color: #414141;
+    background-color: $light-dark;
 }
 
 .card-content {
