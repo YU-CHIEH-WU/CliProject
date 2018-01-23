@@ -118,6 +118,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
 /**/
 
+.input-tight {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .icon-dark {
     color: $text-dark;
 }

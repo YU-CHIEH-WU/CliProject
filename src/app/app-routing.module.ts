@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'codewar/home',
-    component: CodewarComponent
+    component: CodewarComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'topic',

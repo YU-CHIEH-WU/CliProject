@@ -6,6 +6,12 @@ export class UserService {
 
   constructor(private router: Router) { }
   // need to change to Token
+  currentUser: User = {
+    userAccount: '',
+    userName: '',
+    photoUrl: '',
+    isAdmin: false
+  };
   userList = [
     {
       'userAccount': 'test',
@@ -17,7 +23,7 @@ export class UserService {
       'userAccount': 'admin',
       'userPassword': '000000',
       'userName': '管理者',
-      'photoUrl': 'https://i.imgur.com/BHOQI1M.jpg',
+      'photoUrl': 'https://i.imgur.com/NSa8FPo.jpg',
       'isAdmin': true
     }, {
       'userAccount': 'jake.wu',
@@ -27,14 +33,22 @@ export class UserService {
       'isAdmin': false
     }
   ];
-  User: {
-    userAccount: string,
-    userName: string,
-    photoUrl: string,
-    isAdmin: boolean
-  };
 
-  getUserList() {
-    return this.userList;
+  setCurrentUser(loginUser: User) {
+    this.currentUser.userAccount = loginUser.userAccount;
+    this.currentUser.userName = loginUser.userName;
+    this.currentUser.photoUrl = loginUser.photoUrl;
+    this.currentUser.isAdmin = loginUser.isAdmin;
+  }
+  clearCurrentUser() {
+    this.currentUser = new User();
+    console.log(this.currentUser.userAccount);
   }
 }
+export class User {
+  userAccount: string;
+  userName: string;
+  photoUrl: string;
+  isAdmin: boolean;
+}
+

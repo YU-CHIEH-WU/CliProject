@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './service/auth/auth.guard';
 
 import { BrowserModule } from '@angular/platform-browser/';
 import { HttpModule } from '@angular/http';
@@ -30,7 +31,7 @@ import { UserService } from './service/auth/user/user.service';
     TopicModule,
     CodewarModule
   ],
-  providers: [HttpModule, AuthService, UserService],
+  providers: [HttpModule, AuthGuard, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

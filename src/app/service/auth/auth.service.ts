@@ -8,30 +8,28 @@ export class AuthService {
     constructor(private router: Router, private userService: UserService) { }
     // need to change to Token
 
-    currentUser = this.userService.User;
     isLoggedIn(): boolean {
-        if (this.currentUser !== undefined) {
-            if (this.currentUser.userAccount !== '') {
-                return true;
-            } else {
-                return false;
-            }
+        console.log(this.userService.currentUser);
+        if (this.userService.currentUser.userAccount !== '' && this.userService.currentUser.userAccount !== undefined) {
+            return true;
         } else {
             return false;
         }
     }
 
     doLogin(account: string, password: string): boolean {
-        const userList = this.userService.getUserList();
-        for (const i of userList) {
+        for (const i of this.userService.userList) {
             if (account === i.userAccount && password === i.userPassword) {
-                this.currentUser.userAccount = i.userAccount;
-                this.currentUser.userName = i.userName;
-                this.currentUser.photoUrl = i.photoUrl;
-                this.currentUser.isAdmin = i.isAdmin;
+                this.userService.setCurrentUser(i);
                 return true;
             }
         }
         return false;
+    }
+    doLogout() {
+        this.userService.clearCurrentUser();
+    }
+    getCurrentUser() {
+        return this.userService.currentUser;
     }
 }
