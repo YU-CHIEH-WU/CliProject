@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { SharedModule } from '../shared/shared.module';
+
 import { CodewarRoutingModule } from './codewar-routing.module';
 
 import { CodewarComponent } from './codewar.component';
@@ -14,6 +16,7 @@ import { PincodeComponent } from './pincode/pincode.component';
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     CodewarRoutingModule
   ],
   exports: [

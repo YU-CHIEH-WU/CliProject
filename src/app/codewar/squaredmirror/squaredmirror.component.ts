@@ -17,7 +17,7 @@ export class SquaredmirrorComponent {
   vertMirror(strng: string) {
     // your code
     const inputArray: string[] = strng.split('\n');
-    let returnString: string;
+    let returnString = '';
     for (const i of inputArray) {
       const reverArray: string[] = i.split('').reverse();
       for (const x of reverArray) {
@@ -30,7 +30,7 @@ export class SquaredmirrorComponent {
   horMirror(strng: string) {
     // your code
     const inputArray: string[] = strng.split('\n').reverse();
-    let returnString: string;
+    let returnString = '';
     for (const i of inputArray) {
       returnString += i + '\n';
     }

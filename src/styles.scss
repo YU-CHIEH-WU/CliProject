@@ -58,13 +58,25 @@ a {
         background-color: $pink60;
     }
     .collapsible-body {
-        background-color: $light-dark;
         li>a {
             padding: 0 37.5px 0 45px;
             .active {
                 background-color: $pink20;
             }
         }
+    }
+}
+
+.dark-theme {
+    .side-nav {
+        background-color: $light-dark;
+    }
+    .collapsible-header {
+        background-color: $light-dark;
+    }
+    .collapsible-body,
+    .side-nav.fixed .collapsible-body {
+        background-color: $light-dark;
     }
 }
 

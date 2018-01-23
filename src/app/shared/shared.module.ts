@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ClickStopPropagationDirective } from './click-stop-propagation.directive';
 
-import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    SharedRoutingModule
+    CommonModule
   ],
-  declarations: []
+  exports: [
+    ClickStopPropagationDirective
+  ],
+  declarations: [ClickStopPropagationDirective]
 })
 export class SharedModule { }

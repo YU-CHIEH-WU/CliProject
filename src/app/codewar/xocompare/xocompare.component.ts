@@ -10,7 +10,8 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 
 export class XocompareComponent {
-  questionUrl = 'https://www.codewars.com/kata/55908aad6620c066bc00002a/train/typescript';
+  // tslint:disable-next-line:max-line-length
+  instructions = 'Check to see if a string has the same amount of \'x\'s and \'o\'s. The method must return a boolean and be case insensitive. The string can contain any char.';
   testDataArray: string[] = [];
   xo(str: string) {
     let count = 0;
@@ -26,9 +27,10 @@ export class XocompareComponent {
     return count === 0;
   }
   doTest() {
-    this.testDataArray.push('xooxo result= ' + this.xo('xooxo'));
-    this.testDataArray.push('xxOo result= ' + this.xo('xxOo'));
-    this.testDataArray.push('xxxm result= ' + this.xo('xxxm'));
-    this.testDataArray.push('ooxXm result= ' + this.xo('ooxXm'));
+    this.testDataArray.push('ooxx result => ' + this.xo('ooxx'));
+    this.testDataArray.push('xooxx result => ' + this.xo('xooxx'));
+    this.testDataArray.push('ooxXm result => ' + this.xo('ooxXm'));
+    this.testDataArray.push('zpzpzpp result => ' + this.xo('zpzpzpp'));
+    this.testDataArray.push('zzoo result => ' + this.xo('zzoo'));
   }
 }

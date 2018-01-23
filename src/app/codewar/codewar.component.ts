@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClickStopPropagationDirective } from '../shared/click-stop-propagation.directive';
 
 @Component({
   selector: 'app-codewar',
