@@ -10,8 +10,6 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 
 export class XocompareComponent {
-  // tslint:disable-next-line:max-line-length
-  instructions = 'Check to see if a string has the same amount of \'x\'s and \'o\'s. The method must return a boolean and be case insensitive. The string can contain any char.';
   testDataArray: string[] = [];
   xo(str: string) {
     let count = 0;

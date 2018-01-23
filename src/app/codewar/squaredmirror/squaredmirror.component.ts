@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./squaredmirror.component.scss']
 })
 export class SquaredmirrorComponent {
-  questionUrl = 'https://www.codewars.com/kata/56dbe0e313c2f63be4000b25/train/typescript';
   testData: string = String('abcd\nefgh\nijkl\nmnop');
   vertResult: string;
   horResult: string;

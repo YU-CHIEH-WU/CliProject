@@ -11,7 +11,6 @@ export class AuthService {
     // need to change to Token
 
     isLoggedIn(): boolean {
-        console.log(this.userService.currentUser);
         if (this.userService.currentUser.userAccount !== '' && this.userService.currentUser.userAccount !== undefined) {
             return true;
         } else {

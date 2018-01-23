@@ -10,6 +10,8 @@ import { CodewarComponent } from './codewar.component';
 import { XocompareComponent } from './xocompare/xocompare.component';
 import { SquaredmirrorComponent } from './squaredmirror/squaredmirror.component';
 import { PincodeComponent } from './pincode/pincode.component';
+import { LongestComponent } from './longest/longest.component';
+import { AveragesComponent } from './averages/averages.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { PincodeComponent } from './pincode/pincode.component';
     CodewarComponent,
     XocompareComponent,
     SquaredmirrorComponent,
-    PincodeComponent]
+    PincodeComponent,
+    LongestComponent,
+    AveragesComponent]
 })
 export class CodewarModule { }

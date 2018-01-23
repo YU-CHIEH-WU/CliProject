@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./pincode.component.scss']
 })
 export class PincodeComponent {
-  questionUrl = 'https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/train/typescript';
   pin = '';
   result: string;
   doTest() {
