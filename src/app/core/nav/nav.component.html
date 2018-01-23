@@ -7,12 +7,16 @@
                     <i class="large material-icons">account_circle</i>
                     <div class="row">
                         <div class="input-field input-tight col s12">
-                            <input [(ngModel)]="loginAccount" id="account" type="text" class="validate">
+                            <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" id="account" type="text" class="validate" required>
                             <label for="account">Account</label>
                         </div>
                         <div class="input-field input-tight col s12">
-                            <input [(ngModel)]="loginPassword" id="password" type="password" class="validate">
+                            <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" id="password" type="password" class="validate" required>
                             <label for="password">Password</label>
+                        </div>
+                        <div class="col s12 red-text" *ngIf="!error.isAccountValid || !error.isPasswordValid">
+                            <p *ngIf="!error.isAccountValid" class="valid-text">account is required</p>
+                            <p *ngIf="!error.isPasswordValid" class="valid-text">password is required</p>
                         </div>
                         <div class="col s5 ">
                             <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-pink">Login</button>
@@ -38,7 +42,7 @@
     </li>
     <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-pink">Home</a></li>
     <li class="no-padding menu">
-        <ul class="collapsible collapsible-accordion">
+        <ul class="collapsible">
             <li class="bold"><a class="collapsible-header waves-effect waves-pink">Topic</a>
                 <div class="collapsible-body">
                     <ul>

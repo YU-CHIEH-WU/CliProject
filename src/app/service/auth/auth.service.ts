@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from './user/user.service';
 
+declare var Materialize: any;
+
 @Injectable()
 export class AuthService {
 
@@ -13,18 +15,23 @@ export class AuthService {
         if (this.userService.currentUser.userAccount !== '' && this.userService.currentUser.userAccount !== undefined) {
             return true;
         } else {
+            Materialize.toast('You are not Login!', 3000);
             return false;
         }
     }
 
-    doLogin(account: string, password: string): boolean {
+    doLogin(account: string, password: string) {
         for (const i of this.userService.userList) {
-            if (account === i.userAccount && password === i.userPassword) {
-                this.userService.setCurrentUser(i);
-                return true;
+            if (account === i.userAccount) {
+                if (password === i.userPassword) {
+                    this.userService.setCurrentUser(i);
+                    return { status: true, message: 'login success!' };
+                } else {
+                    return { status: false, message: 'wrong password!' };
+                }
             }
         }
-        return false;
+        return { status: false, message: 'doesn\'t match any account!' };
     }
     doLogout() {
         this.userService.clearCurrentUser();

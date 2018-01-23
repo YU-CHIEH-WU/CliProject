@@ -6,10 +6,10 @@
 $dark: #323232;
 $light-dark :#414141;
 $text-dark:#292929;
-$pink80:rgba(240, 98, 146, 0.8);
-$pink60:rgba(240, 98, 146, 0.6);
-$pink20:rgba(240, 98, 146, 0.2);
-$pink:#f06292;
+$pink80:rgba(255, 64, 129, 0.8);
+$pink60:rgba(255, 64, 129, 0.6);
+$pink20:rgba(255, 64, 129, 0.2);
+$pink:#ff4081;
 
 /**/
 
@@ -115,6 +115,10 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     color: $pink;
 }
 
+.toast {
+    background-color: $pink80;
+}
+
 
 /**/
 
@@ -141,6 +145,12 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     padding: 16px;
     min-height: 240px;
     background-color: $light-dark;
+}
+
+.valid-text {
+    height: 16px;
+    margin: 0;
+    line-height: 16px;
 }
 
 .text-pink:hover {
