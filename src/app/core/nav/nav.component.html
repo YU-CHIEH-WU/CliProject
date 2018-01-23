@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col s12 center-align" *ngIf="!isLoggedIn">
-                        <p>Not Auth User Area</p>
+                        <p>Not Auth User</p>
                         <i class="large material-icons">account_circle</i>
                         <div class="row">
                             <div class="input-field input-tight col s12">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col s12 center-align" *ngIf="isLoggedIn">
-                        <p>Hello {{currentUser.Name}}</p>
+                        <p>Hello {{currentUser.userName}}</p>
                         <div class="nav-user-photo">
                             <img [src]="currentUser.photoUrl" alt="">
                         </div>
