@@ -7,10 +7,8 @@ import { ClickStopPropagationDirective } from '../shared/click-stop-propagation.
   styleUrls: ['./codewar.component.scss']
 })
 export class CodewarComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit() {
+    $('.collapsible').collapsible();
   }
-
 }

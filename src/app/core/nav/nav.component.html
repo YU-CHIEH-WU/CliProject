@@ -8,11 +8,11 @@
                         <i class="large material-icons">account_circle</i>
                         <div class="row">
                             <div class="input-field input-tight col s12">
-                                <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" id="account" type="text" class="validate" required>
+                                <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" [class.invalid]="!error.isAccountValid" id="account" type="text" class="validate" required>
                                 <label for="account">Account</label>
                             </div>
                             <div class="input-field input-tight col s12">
-                                <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" id="password" type="password" class="validate" required>
+                                <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" [class.invalid]="!error.isPasswordValid" id="password" type="password" class="validate" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="col s12 red-text" *ngIf="!error.isAccountValid || !error.isPasswordValid">

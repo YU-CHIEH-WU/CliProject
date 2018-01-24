@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { CodewarModule } from './codewar/codewar.module';
 import { TopicModule } from './topic/topic.module';
 
+import { MaterializeService } from './shared/materialize.service';
 import { AuthService } from './service/auth/auth.service';
 import { UserService } from './service/auth/user/user.service';
 
@@ -31,7 +32,7 @@ import { UserService } from './service/auth/user/user.service';
     TopicModule,
     CodewarModule
   ],
-  providers: [HttpModule, AuthGuard, AuthService, UserService],
+  providers: [HttpModule, MaterializeService, AuthGuard, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

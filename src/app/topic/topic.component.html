@@ -31,7 +31,6 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Id</th>
                         <th>Name</th>
                         <th>FullName</th>
                         <th>CreateTime</th>
@@ -43,9 +42,6 @@
                     <tr *ngFor="let item of itemList; let i = index">
                         <td>
                             {{i+1}}
-                        </td>
-                        <td>
-                            {{item.id}}
                         </td>
                         <td>
                             {{item.name}}

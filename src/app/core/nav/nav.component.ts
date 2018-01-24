@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MaterializeService } from '../../shared/materialize.service';
 import { AuthService } from '../../service/auth/auth.service';
 import { User } from '../../service/auth/user/user.service';
-
-declare var Materialize: any;
 
 @Component({
     selector: 'app-nav',
@@ -11,15 +10,17 @@ declare var Materialize: any;
     styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+    materialize: any;
     clickedTab: string;
     loginAccount: string;
     loginPassword: string;
     isLoggedIn = false;
     error = { isAccountValid: true, isPasswordValid: true };
     currentUser: User = this.authService.getCurrentUser();
-    constructor(private router: Router, private authService: AuthService) { }
+    constructor(private router: Router, private authService: AuthService, private _materialize: MaterializeService) { }
 
     ngOnInit() {
+        this.materialize = this._materialize.getMaterialize();
         this.loginAccount = 'admin';
         this.loginPassword = '000000';
         this.isLoggedIn = this.authService.isLoggedIn();
@@ -38,13 +39,18 @@ export class NavComponent implements OnInit {
         }
     }
     doLogin() {
+        if (this.loginAccount === '' && this.loginPassword === '') {
+            this.error.isAccountValid = false;
+            this.error.isPasswordValid = false;
+            return false;
+        }
         if (this.error.isAccountValid && this.error.isPasswordValid) {
             const result = this.authService.doLogin(this.loginAccount, this.loginPassword);
             if (result.status) {
                 this.currentUser = this.authService.getCurrentUser();
                 this.isLoggedIn = true;
             }
-            Materialize.toast(result.message, 3000);
+            this.materialize.toast(result.message, 3000);
             this.router.navigateByUrl('home');
         }
     }
@@ -54,6 +60,6 @@ export class NavComponent implements OnInit {
         this.loginPassword = '';
         this.isLoggedIn = false;
         this.router.navigateByUrl('home');
-        Materialize.toast('you are logout!', 3000);
+        this.materialize.toast('you are logout!', 3000);
     }
 }

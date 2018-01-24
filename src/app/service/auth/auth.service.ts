@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from './user/user.service';
-
-declare var Materialize: any;
+import { MaterializeService } from '../../shared/materialize.service';
 
 @Injectable()
 export class AuthService {
-
-    constructor(private router: Router, private userService: UserService) { }
+    materialize: any;
+    constructor(private router: Router, private userService: UserService, private _materialize: MaterializeService) { }
     // need to change to Token
-
     isLoggedIn(): boolean {
         if (this.userService.currentUser.userAccount !== '' && this.userService.currentUser.userAccount !== undefined) {
             return true;
         } else {
-            Materialize.toast('You are not Login!', 3000);
+            this.materialize = this._materialize.getMaterialize();
+            this.materialize.toast('You are not Login!', 3000);
             return false;
         }
     }
