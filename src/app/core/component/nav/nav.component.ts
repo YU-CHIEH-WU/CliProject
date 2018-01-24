@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MaterializeService } from '../../shared/materialize.service';
-import { AuthService } from '../../service/auth/auth.service';
-import { User } from '../../service/auth/user/user.service';
+import { MaterializeService } from '../../../shared/service/materialize/materialize.service';
+import { UserAuthService } from '../../service/user/user-auth.service';
 
 @Component({
     selector: 'app-nav',
@@ -10,22 +9,21 @@ import { User } from '../../service/auth/user/user.service';
     styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-    materialize: any;
     clickedTab: string;
     loginAccount: string;
     loginPassword: string;
     isLoggedIn = false;
     error = { isAccountValid: true, isPasswordValid: true };
-    currentUser: User = this.authService.getCurrentUser();
-    constructor(private router: Router, private authService: AuthService, private _materialize: MaterializeService) { }
+    currentUser = this._userAuthService.getCurrentUser();
+    constructor(private _router: Router, private _userAuthService: UserAuthService,
+        private _materialize: MaterializeService) { }
 
     ngOnInit() {
-        this.materialize = this._materialize.getMaterialize();
         this.loginAccount = 'admin';
         this.loginPassword = '000000';
-        this.isLoggedIn = this.authService.isLoggedIn();
-        this.router.events.subscribe((res) => {
-            this.clickedTab = this.router.url;
+        this.isLoggedIn = this._userAuthService.isLoggedIn();
+        this._router.events.subscribe((res) => {
+            this.clickedTab = this._router.url;
         });
     }
     clickTab(clickedTab) {
@@ -45,21 +43,21 @@ export class NavComponent implements OnInit {
             return false;
         }
         if (this.error.isAccountValid && this.error.isPasswordValid) {
-            const result = this.authService.doLogin(this.loginAccount, this.loginPassword);
+            const result = this._userAuthService.doLogin(this.loginAccount, this.loginPassword);
             if (result.status) {
-                this.currentUser = this.authService.getCurrentUser();
+                this.currentUser = this._userAuthService.getCurrentUser();
                 this.isLoggedIn = true;
             }
-            this.materialize.toast(result.message, 3000);
-            this.router.navigateByUrl('home');
+            this._materialize.toast(result.message, 3000);
+            this._router.navigateByUrl('home');
         }
     }
     doLogout() {
-        this.authService.doLogout();
+        this._userAuthService.doLogout();
         this.loginAccount = '';
         this.loginPassword = '';
         this.isLoggedIn = false;
-        this.router.navigateByUrl('home');
-        this.materialize.toast('you are logout!', 3000);
+        this._router.navigateByUrl('home');
+        this._materialize.toast('you are logout!', 3000);
     }
 }

@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { CodewarRoutingModule } from './codewar-routing.module';
+// private service
+import { KataSolveService } from './service/kata-solve.service';
+import { KataDataService } from './service/kata-data.service';
 
 import { CodewarComponent } from './codewar.component';
 import { XocompareComponent } from './xocompare/xocompare.component';
@@ -13,13 +15,11 @@ import { PincodeComponent } from './pincode/pincode.component';
 import { LongestComponent } from './longest/longest.component';
 import { AveragesComponent } from './averages/averages.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    CodewarRoutingModule
   ],
   exports: [
     CodewarComponent,
@@ -33,6 +33,7 @@ import { AveragesComponent } from './averages/averages.component';
     SquaredmirrorComponent,
     PincodeComponent,
     LongestComponent,
-    AveragesComponent]
+    AveragesComponent],
+  providers: [KataSolveService, KataDataService]
 })
 export class CodewarModule { }

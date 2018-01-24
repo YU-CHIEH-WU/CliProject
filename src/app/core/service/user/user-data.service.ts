@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable()
-export class UserService {
+export class UserDataService {
 
-  constructor(private router: Router) { }
+  constructor() { }
   // need to change to Token
   currentUser: User = {
     userAccount: '',

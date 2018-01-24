@@ -1,16 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="dark-theme">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
+            <ul class="collapsible popout kata-list" data-collapsible="accordion">
+                <!-- <li *ngFor="let kata of kataList">
                     <div class="collapsible-header">
-                        <div class="header-title"><i class="material-icons">done</i>Exes and Ohs</div>
-                        <a target="_blank" href="https://www.codewars.com/kata/55908aad6620c066bc00002a/train/typescript" class="header-link waves-effect waves-light btn-flat text-pink" click-stop-propagation>Link</a>
+                        <div class="header-title"><i class="material-icons">{{kata.status}}</i>{{kata.title}}</div>
+                        <a target="_blank" [href]="kata.link" class="header-link waves-effect waves-light btn-flat text-pink" click-stop-propagation>Link</a>
                     </div>
                     <div class="collapsible-body">
-                        <app-xocompare></app-xocompare>
+                        <button (click)="doTest(kata.title)" class="waves-effect waves-light btn-flat">TEST</button>
                     </div>
-                </li>
+                </li> -->
                 <li>
                     <div class="collapsible-header">
                         <div class="header-title"><i class="material-icons">done</i>Moves in squared strings (I)</div>
@@ -39,7 +39,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header active">
+                    <div class="collapsible-header">
                         <div class="header-title"><i class="material-icons">done</i>Averages of numbers</div>
                         <a target="_blank" href="https://www.codewars.com/kata/57d2807295497e652b000139/train/typescript" class="header-link waves-effect waves-light btn-flat text-pink" click-stop-propagation>Link</a>
                     </div>

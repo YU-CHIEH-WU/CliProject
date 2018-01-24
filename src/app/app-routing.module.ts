@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './service/auth/auth.guard';
+import { UserAuthService } from './core/service/user/user-auth.service';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 import { CodewarComponent } from './codewar/codewar.component';
 import { TopicComponent } from './topic/topic.component';
 const routes: Routes = [
@@ -15,14 +16,18 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
     path: 'codewar/home',
     component: CodewarComponent,
-    // canActivate: [AuthGuard] for test
+    canActivate: [UserAuthService]
   },
   {
     path: 'topic',
     component: TopicComponent,
-    canActivate: [AuthGuard]
+    canActivate: [UserAuthService]
   },
   // change to 404
   {
