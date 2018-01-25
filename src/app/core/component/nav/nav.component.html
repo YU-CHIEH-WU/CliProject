@@ -20,10 +20,10 @@
                                 <p *ngIf="!error.isPasswordValid" class="valid-text">password is required</p>
                             </div>
                             <div class="col s5">
-                                <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-pink">Login</button>
+                                <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-primary">Login</button>
                             </div>
                             <div class="col s5">
-                                <a routerLink="register" class="waves-effect waves-light btn-flat text-pink">Register</a>
+                                <a routerLink="register" class="waves-effect waves-light btn-flat text-primary">Register</a>
                             </div>
                             <div class="col s2"></div>
                         </div>
@@ -35,31 +35,32 @@
                         </div>
                         <div class="row row-tight">
                             <div class="col s12">
-                                <button (click)="doLogout()" class="waves-effect waves-light btn-flat text-pink">Logout</button>
+                                <button (click)="doLogout()" class="waves-effect waves-light btn-flat text-primary">Logout</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </li>
-        <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-pink">Home</a></li>
-        <li class="bold menu"><a (click)="clickTab('/about')" [class.active]="clickedTab === '/about'" routerLink="about" class="waves-effect waves-pink">About</a></li>
+        <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-primary">Home</a></li>
+        <li class="bold menu"><a (click)="clickTab('/about')" [class.active]="clickedTab === '/about'" routerLink="about" class="waves-effect waves-primary">About</a></li>
+        <li class="bold menu"><a (click)="clickTab('/bug')" [class.active]="clickedTab === '/bug'" routerLink="bug" class="waves-effect waves-primary">Bug Record</a></li>
         <li class="no-padding menu" [hidden]="!isLoggedIn">
             <ul class="collapsible user-menu">
-                <li class="bold"><a class="collapsible-header waves-effect waves-pink">Topic</a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-primary">Topic</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a (click)="clickTab('/topic')" [class.active]="clickedTab === '/topic'" routerLink="topic" class="waves-effect waves-pink">Home</a></li>
+                            <li><a (click)="clickTab('/topic/idea/list')" [class.active]="clickedTab === '/topic/idea/list'" routerLink="topic/idea/list" class="waves-effect waves-primary">IdeaList</a></li>
                             <li><a routerLink="topic">temp</a></li>
                             <li><a routerLink="topic">temp</a></li>
                             <li><a routerLink="topic">temp</a></li>
                         </ul>
                     </div>
                 </li>
-                <li class="bold"><a class="collapsible-header waves-effect waves-pink">CodeWar</a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-primary">CodeWar</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a (click)="clickTab('/codewar/home')" [class.active]="clickedTab === '/codewar/home'" routerLink="codewar/home" class="waves-effect waves-pink">Home</a></li>
+                            <li><a (click)="clickTab('/codewar/home')" [class.active]="clickedTab === '/codewar/home'" routerLink="codewar/home" class="waves-effect waves-primary">Home</a></li>
                             <li><a routerLink="codewar">temp</a></li>
                             <li><a routerLink="codewar">temp</a></li>
                             <li><a routerLink="codewar">temp</a></li>

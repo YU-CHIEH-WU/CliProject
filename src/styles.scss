@@ -3,13 +3,14 @@
 
 /* variable */
 
-$dark: #323232;
-$light-dark :#414141;
+$dark: #303030;
+$light-dark :#424242;
+$lighter-dark:#646464;
 $text-dark:#292929;
-$pink80:rgba(255, 64, 129, 0.8);
-$pink60:rgba(255, 64, 129, 0.6);
-$pink20:rgba(255, 64, 129, 0.2);
-$pink:#ff4081;
+$primary:#628DB2;
+$primary80:rgba($primary, 0.8);
+$primary60:rgba($primary, 0.6);
+$primary20:rgba($primary, 0.2);
 
 /**/
 
@@ -42,26 +43,26 @@ a {
     width: 270px;
     .menu {
         .active {
-            background-color: $pink80;
+            background-color: $primary80;
             &:hover {
-                background-color: $pink80;
+                background-color: $primary80;
             }
         }
         a {
             color: whitesmoke;
             &:hover {
-                background-color: $pink60;
+                background-color: $primary60;
             }
         }
     }
     .collapsible-header:hover {
-        background-color: $pink60;
+        background-color: $primary60;
     }
     .collapsible-body {
         li>a {
             padding: 0 37.5px 0 45px;
             .active {
-                background-color: $pink20;
+                background-color: $primary20;
             }
         }
     }
@@ -80,13 +81,18 @@ a {
     }
 }
 
+table.highlight>tbody>tr:hover {
+    background-color: $lighter-dark;
+}
+
 .btn-flat {
     color: white;
     transition: color .6s;
+    text-transform: none;
 }
 
-.waves-effect.waves-pink .waves-ripple {
-    background-color: $pink80;
+.waves-effect.waves-primary .waves-ripple {
+    background-color: $primary80;
 }
 
 .side-nav .collapsible-header,
@@ -107,15 +113,15 @@ input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid $pink;
-    box-shadow: 0 1px 0 0 $pink;
+    border-bottom: 1px solid $primary;
+    box-shadow: 0 1px 0 0 $primary;
     +label {
-        color: $pink;
+        color: $primary;
     }
 }
 
 .toast {
-    background-color: $pink80;
+    background-color: $primary80;
 }
 
 
@@ -149,7 +155,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .card-content {
     margin: 24px;
     padding: 16px;
-    min-height: 240px;
+    min-height: 160px;
     background-color: $light-dark;
 }
 
@@ -159,8 +165,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
     line-height: 16px;
 }
 
-.text-pink:hover {
-    color: $pink;
+.text-primary:hover {
+    color: $primary;
 }
 
 .text-grey:hover {

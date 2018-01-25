@@ -1,7 +1,7 @@
 // angular module
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser/';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // core module & routing
@@ -19,23 +19,25 @@ import { TopicModule } from './topic/topic.module';
 
 // shared service
 import { MaterializeService } from './shared/service/materialize/materialize.service';
+import { BugComponent } from './bug/bug.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    BugComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     CoreModule.forRoot(),
     TopicModule,
     CodewarModule
   ],
-  providers: [HttpModule, MaterializeService],
+  providers: [HttpClientModule, MaterializeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

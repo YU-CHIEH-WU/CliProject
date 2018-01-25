@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserAuthService } from './core/service/user/user-auth.service';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { BugComponent } from './bug/bug.component';
 import { CodewarComponent } from './codewar/codewar.component';
-import { TopicComponent } from './topic/topic.component';
+import { IdeaListComponent } from './topic/idea/idea-list/idea-list.component';
+import { IdeaAddComponent } from './topic/idea/idea-add/idea-add.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,13 +22,22 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
+    path: 'bug',
+    component: BugComponent
+  },
+  {
     path: 'codewar/home',
     component: CodewarComponent,
     canActivate: [UserAuthService]
   },
   {
-    path: 'topic',
-    component: TopicComponent,
+    path: 'topic/idea/list',
+    component: IdeaListComponent,
+    canActivate: [UserAuthService]
+  },
+  {
+    path: 'topic/idea/add',
+    component: IdeaAddComponent,
     canActivate: [UserAuthService]
   },
   // change to 404

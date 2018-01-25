@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 
-// private service
-import { KataSolveService } from './service/kata-solve.service';
-import { KataDataService } from './service/kata-data.service';
+// private shared service
 
 import { CodewarComponent } from './codewar.component';
 import { XocompareComponent } from './xocompare/xocompare.component';
@@ -21,19 +19,12 @@ import { AveragesComponent } from './averages/averages.component';
     FormsModule,
     SharedModule,
   ],
-  exports: [
-    CodewarComponent,
-    XocompareComponent,
-    SquaredmirrorComponent,
-    PincodeComponent,
-  ],
   declarations: [
     CodewarComponent,
     XocompareComponent,
     SquaredmirrorComponent,
     PincodeComponent,
     LongestComponent,
-    AveragesComponent],
-  providers: [KataSolveService, KataDataService]
+    AveragesComponent]
 })
 export class CodewarModule { }
