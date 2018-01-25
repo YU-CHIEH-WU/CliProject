@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 // core service
-import { UserAuthService } from './service/user/user-auth.service';
-import { UserDataService } from './service/user/user-data.service';
+import { UserAuthService } from '../service/core/user/user-auth.service';
+import { UserDataService } from '../service/core/user/user-data.service';
 // core component
 import { NavComponent } from './component/nav/nav.component';
 

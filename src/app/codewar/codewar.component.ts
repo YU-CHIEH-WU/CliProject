@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ClickStopPropagationDirective } from '../shared/directive/click-stop-propagation.directive';
-import { MaterializeService } from '../shared/service/materialize/materialize.service';
+import { MaterializeService } from '../service/shared/materialize/materialize.service';
 
 @Component({
   selector: 'app-codewar',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserAuthService } from './core/service/user/user-auth.service';
+import { UserAuthService } from './service/core/user/user-auth.service';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BugComponent } from './bug/bug.component';

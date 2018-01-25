@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MaterializeService } from '../../../shared/service/materialize/materialize.service';
-import { UserAuthService } from '../../service/user/user-auth.service';
+import { MaterializeService } from '../../../service/shared/materialize/materialize.service';
+import { UserAuthService } from '../../../service/core/user/user-auth.service';
 
 @Component({
     selector: 'app-nav',

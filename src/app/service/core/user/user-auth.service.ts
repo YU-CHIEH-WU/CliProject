@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { UserDataService } from './user-data.service';
-import { MaterializeService } from '../../../shared/service/materialize/materialize.service';
+import { MaterializeService } from '../../../service/shared/materialize/materialize.service';
 
 @Injectable()
 export class UserAuthService {

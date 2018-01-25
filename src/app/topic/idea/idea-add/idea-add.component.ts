@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IdeaService, Idea } from '../service/idea.service';
+import { IdeaService, Idea } from '../../../service/topic/idea/idea.service';
 
 @Component({
   selector: 'app-idea-add',

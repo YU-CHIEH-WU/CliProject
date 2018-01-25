@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { IdeaService } from './service/idea.service';
+import { IdeaService } from '../..//service/topic/idea/idea.service';
 
 import { IdeaListComponent } from './idea-list/idea-list.component';
 import { IdeaAddComponent } from './idea-add/idea-add.component';

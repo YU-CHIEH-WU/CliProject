@@ -18,7 +18,7 @@ import { CodewarModule } from './codewar/codewar.module';
 import { TopicModule } from './topic/topic.module';
 
 // shared service
-import { MaterializeService } from './shared/service/materialize/materialize.service';
+import { MaterializeService } from './service/shared/materialize/materialize.service';
 import { BugComponent } from './bug/bug.component';
 
 @NgModule({
