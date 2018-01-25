@@ -11,7 +11,6 @@ export class IdeaListComponent implements OnInit {
   ideaList: Idea[];
   constructor(private _router: Router, private _ideaService: IdeaService) { }
   async ngOnInit() {
-    console.log('list init');
     this.ideaList = await this._ideaService.getIdeaList();
   }
   trackIdeaList(index: number) {

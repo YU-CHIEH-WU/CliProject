@@ -1,73 +1,71 @@
-<div class="dark-theme">
-    <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(0%);">
-        <li class="no-padding nav-user">
-            <div class="container">
-                <div class="row row-tight">
-                    <div class="col s12 center-align" *ngIf="!isLoggedIn">
-                        <p class="text-tight">Not Auth User</p>
-                        <i class="large material-icons">account_circle</i>
-                        <div class="row row-tight" id="user-input">
-                            <div class="input-field input-field-tight col s12">
-                                <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" [class.invalid]="!error.isAccountValid" id="account" type="text" class="validate input-tight" required>
-                                <label for="account">Account</label>
-                            </div>
-                            <div class="input-field input-field-tight col s12">
-                                <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" [class.invalid]="!error.isPasswordValid" id="password" type="password" class="validate input-tight" required>
-                                <label for="password">Password</label>
-                            </div>
-                            <div class="col s12 red-text" *ngIf="!error.isAccountValid || !error.isPasswordValid">
-                                <p *ngIf="!error.isAccountValid" class="valid-text">account is required</p>
-                                <p *ngIf="!error.isPasswordValid" class="valid-text">password is required</p>
-                            </div>
-                            <div class="col s5">
-                                <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-primary">Login</button>
-                            </div>
-                            <div class="col s5">
-                                <a routerLink="register" class="waves-effect waves-light btn-flat text-primary">Register</a>
-                            </div>
-                            <div class="col s2"></div>
+<ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(0%);">
+    <li class="no-padding nav-user">
+        <div class="container">
+            <div class="row row-tight">
+                <div class="col s12 center-align" *ngIf="!isLoggedIn">
+                    <p class="text-tight">Not Auth User</p>
+                    <i class="large material-icons">account_circle</i>
+                    <div class="row row-tight" id="user-input">
+                        <div class="input-field input-field-tight col s12">
+                            <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" [class.invalid]="!error.isAccountValid" id="account" type="text" class="validate input-tight" required>
+                            <label for="account">Account</label>
                         </div>
+                        <div class="input-field input-field-tight col s12">
+                            <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" [class.invalid]="!error.isPasswordValid" id="password" type="password" class="validate input-tight" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col s12 red-text" *ngIf="!error.isAccountValid || !error.isPasswordValid">
+                            <p *ngIf="!error.isAccountValid" class="valid-text">account is required</p>
+                            <p *ngIf="!error.isPasswordValid" class="valid-text">password is required</p>
+                        </div>
+                        <div class="col s5">
+                            <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-primary">Login</button>
+                        </div>
+                        <div class="col s5">
+                            <a routerLink="register" class="waves-effect waves-light btn-flat text-primary">Register</a>
+                        </div>
+                        <div class="col s2"></div>
                     </div>
-                    <div class="col s12 center-align" *ngIf="isLoggedIn">
-                        <p>Hello {{currentUser.userName}}</p>
-                        <div class="nav-user-photo">
-                            <img [src]="currentUser.photoUrl" alt="">
-                        </div>
-                        <div class="row row-tight">
-                            <div class="col s12">
-                                <button (click)="doLogout()" class="waves-effect waves-light btn-flat text-primary">Logout</button>
-                            </div>
+                </div>
+                <div class="col s12 center-align" *ngIf="isLoggedIn">
+                    <p>Hello {{currentUser.userName}}</p>
+                    <div class="nav-user-photo">
+                        <img [src]="currentUser.photoUrl" alt="">
+                    </div>
+                    <div class="row row-tight">
+                        <div class="col s12">
+                            <button (click)="doLogout()" class="waves-effect waves-light btn-flat text-primary">Logout</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </li>
-        <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-primary">Home</a></li>
-        <li class="bold menu"><a (click)="clickTab('/about')" [class.active]="clickedTab === '/about'" routerLink="about" class="waves-effect waves-primary">About</a></li>
-        <li class="bold menu"><a (click)="clickTab('/bug')" [class.active]="clickedTab === '/bug'" routerLink="bug" class="waves-effect waves-primary">Bug Record</a></li>
-        <li class="no-padding menu" [hidden]="!isLoggedIn">
-            <ul class="collapsible user-menu">
-                <li class="bold"><a class="collapsible-header waves-effect waves-primary">Topic</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a (click)="clickTab('/topic/idea/list')" [class.active]="clickedTab === '/topic/idea/list'" routerLink="topic/idea/list" class="waves-effect waves-primary">IdeaList</a></li>
-                            <li><a routerLink="topic">temp</a></li>
-                            <li><a routerLink="topic">temp</a></li>
-                            <li><a routerLink="topic">temp</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="bold"><a class="collapsible-header waves-effect waves-primary">CodeWar</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a (click)="clickTab('/codewar/home')" [class.active]="clickedTab === '/codewar/home'" routerLink="codewar/home" class="waves-effect waves-primary">Home</a></li>
-                            <li><a routerLink="codewar">temp</a></li>
-                            <li><a routerLink="codewar">temp</a></li>
-                            <li><a routerLink="codewar">temp</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
+        </div>
+    </li>
+    <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="waves-effect waves-primary">Home</a></li>
+    <li class="bold menu"><a (click)="clickTab('/about')" [class.active]="clickedTab === '/about'" routerLink="about" class="waves-effect waves-primary">About</a></li>
+    <li class="bold menu"><a (click)="clickTab('/bug')" [class.active]="clickedTab === '/bug'" routerLink="bug" class="waves-effect waves-primary">Bug Record</a></li>
+    <li class="no-padding menu" [hidden]="!isLoggedIn">
+        <ul class="collapsible user-menu">
+            <li class="bold"><a class="collapsible-header waves-effect waves-primary">Topic</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a (click)="clickTab('/topic/idea/list')" [class.active]="clickedTab === '/topic/idea/list'" routerLink="topic/idea/list" class="waves-effect waves-primary">IdeaList</a></li>
+                        <li><a routerLink="topic">temp</a></li>
+                        <li><a routerLink="topic">temp</a></li>
+                        <li><a routerLink="topic">temp</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-primary">CodeWar</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a (click)="clickTab('/codewar/home')" [class.active]="clickedTab === '/codewar/home'" routerLink="codewar/home" class="waves-effect waves-primary">Home</a></li>
+                        <li><a routerLink="codewar">temp</a></li>
+                        <li><a routerLink="codewar">temp</a></li>
+                        <li><a routerLink="codewar">temp</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

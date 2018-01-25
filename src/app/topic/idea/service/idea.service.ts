@@ -6,19 +6,25 @@ export class IdeaService {
   private ideaList: Idea[];
   constructor(private _http: HttpClient) { }
   private apiurl = 'https://api.github.com/users/mralexgray/repos';
+
   async getIdeaList() {
     if (!this.ideaList) {
       this.ideaList = await this._http.get<Idea[]>(this.apiurl).toPromise();
     }
     return this.ideaList;
   }
+
   addToIdeaList(newIdea: Idea) {
-    this.ideaList.unshift({ id: newIdea.id, name: newIdea.name, full_name: newIdea.full_name, created_at: newIdea.created_at });
+    // post to api & refresh ideaList
+    this.ideaList.unshift(newIdea);
   }
+
   deleteIdea(index: number) {
+    // post to api & refresh ideaList
     this.ideaList.splice(index, 1);
   }
 }
+
 export class Idea {
   id: number;
   name: string;
