@@ -9,6 +9,7 @@ import { UserAuthService } from '../../service/user/user-auth.service';
     styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+    collapsible: any;
     clickedTab: string;
     loginAccount: string;
     loginPassword: string;
@@ -25,6 +26,7 @@ export class NavComponent implements OnInit {
         this._router.events.subscribe((res) => {
             this.clickedTab = this._router.url;
         });
+        this._materialize.collapsible('.user-menu');
     }
     clickTab(clickedTab) {
         this.clickedTab = clickedTab;

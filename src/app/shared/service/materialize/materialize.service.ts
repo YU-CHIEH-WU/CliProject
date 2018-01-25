@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
 
-declare let Materialize: any;
-declare let $: any;
+declare let M: any;
 
 @Injectable()
 export class MaterializeService {
 
     toast(message: string, duration: number) {
-        Materialize.toast(message, duration);
+        M.toast({ html: message, displayLength: duration });
     }
 
-    collapsible(target: string) {
-        $(target).collapsible();
+    collapsible(target: string, option?) {
+        const elem = document.querySelector(target);
+        console.log(M);
+        const instance = M.Collapsible.init(elem, option);
+    }
+    openCollapsible(instance, index) {
+        instance.open(index);
+    }
+
+    closeCollapsible(instance, index) {
+        instance.close(index);
     }
 }

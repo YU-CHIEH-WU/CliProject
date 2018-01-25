@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 // shared
-import { TopicComponent } from './topic.component';
+
 // feature-part
 import { IdeaModule } from './idea/idea.module';
 
@@ -13,6 +13,6 @@ import { IdeaModule } from './idea/idea.module';
     FormsModule,
     IdeaModule.forRoot()
   ],
-  declarations: [TopicComponent]
+  declarations: []
 })
 export class TopicModule { }

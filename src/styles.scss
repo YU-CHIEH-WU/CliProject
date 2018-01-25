@@ -3,7 +3,7 @@
 
 /* variable */
 
-$dark: #303030;
+$dark: #212121;
 $light-dark :#424242;
 $lighter-dark:#646464;
 $text-dark:#292929;
@@ -38,7 +38,7 @@ a {
     }
 }
 
-.side-nav.fixed {
+.sidenav.sidenav-fixed {
     background-color: $light-dark;
     width: 270px;
     .menu {
@@ -69,7 +69,7 @@ a {
 }
 
 .dark-theme {
-    .side-nav {
+    .sidenav {
         background-color: $light-dark;
     }
     .collapsible-header {
@@ -79,6 +79,9 @@ a {
     .side-nav.fixed .collapsible-body {
         background-color: $light-dark;
     }
+    input {
+        color: whitesmoke;
+    }
 }
 
 table.highlight>tbody>tr:hover {
@@ -86,7 +89,7 @@ table.highlight>tbody>tr:hover {
 }
 
 .btn-flat {
-    color: white;
+    color: whitesmoke;
     transition: color .6s;
     text-transform: none;
 }
@@ -95,8 +98,8 @@ table.highlight>tbody>tr:hover {
     background-color: $primary80;
 }
 
-.side-nav .collapsible-header,
-.side-nav.fixed .collapsible-header {
+.sidenav .collapsible-header,
+.sidenav.sidenav-fixed .collapsible-header {
     padding: 0 32px;
 }
 
