@@ -10,6 +10,8 @@
     $primary60:rgba($primary, 0.6);
     $primary20:rgba($primary, 0.2);
     $success:#4CAF50;
+    $danger:#ef5350;
+    $danger80:rgba($danger, 0.8);
     /**/
     /* basic elements*/
     
@@ -126,6 +128,9 @@
     
     .toast {
         background-color: $primary80;
+        &.danger {
+            background-color: $danger80;
+        }
     }
     /**/
     
@@ -156,6 +161,10 @@
     
     .main {
         padding-left: 260px;
+    }
+    
+    .card-page.card-content {
+        min-height: calc(100vh - 112px);
     }
     
     .card-content {

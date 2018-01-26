@@ -5,8 +5,8 @@ declare let M: any;
 @Injectable()
 export class MaterializeService {
 
-    toast(message: string, duration: number) {
-        M.toast({ html: message, displayLength: duration });
+    toast(message: string, duration: number, classes: string = '') {
+        M.toast({ html: message, displayLength: duration, classes: classes });
     }
 
     collapsible(target: string, option?) {

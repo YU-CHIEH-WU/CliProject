@@ -20,13 +20,15 @@ import { TopicModule } from './topic/topic.module';
 
 // shared service
 import { MaterializeService } from './service/shared/materialize/materialize.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    BugComponent
+    BugComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

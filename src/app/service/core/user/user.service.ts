@@ -41,7 +41,7 @@ export class UserService {
         if (this.currentUser.userAccount !== '' && this.currentUser.userAccount !== undefined) {
             return true;
         } else {
-            this._materialize.toast('You are not Login!', 3000);
+            this._materialize.toast('You are not Login!', 1000, 'danger');
             return false;
         }
     }

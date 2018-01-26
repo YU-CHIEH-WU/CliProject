@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserService } from './service/core/user/user.service';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { BugComponent } from './bug/bug.component';
 import { CodewarComponent } from './codewar/codewar.component';
@@ -41,10 +42,13 @@ const routes: Routes = [
     component: IdeaAddComponent,
     canActivate: [UserService]
   },
-  // change to 404
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
   {
     path: '**',
-    component: HomeComponent
+    redirectTo: '404'
   }
 ];
 

@@ -50,8 +50,11 @@ export class NavComponent implements OnInit {
             if (result.status) {
                 this.currentUser = this._userService.getCurrentUser();
                 this.isLoggedIn = true;
+                console.log(result.message);
+                this._materialize.toast(result.message, 3000);
+            } else {
+                this._materialize.toast(result.message, 3000, 'danger');
             }
-            this._materialize.toast(result.message, 3000);
             this._router.navigateByUrl('home');
         }
     }
@@ -61,7 +64,6 @@ export class NavComponent implements OnInit {
         this.loginPassword = '';
         this.isLoggedIn = false;
         this._router.navigateByUrl('home');
-        this._materialize.toast('you are logout!', 3000);
         this._materialize.closeCollapsible(this.userMenu);
     }
 }
