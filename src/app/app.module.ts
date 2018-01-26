@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { BugComponent } from './bug/bug.component';
 
 // feature module
 import { CodewarModule } from './codewar/codewar.module';
@@ -19,7 +20,6 @@ import { TopicModule } from './topic/topic.module';
 
 // shared service
 import { MaterializeService } from './service/shared/materialize/materialize.service';
-import { BugComponent } from './bug/bug.component';
 
 @NgModule({
   declarations: [

@@ -11,14 +11,15 @@ export class MaterializeService {
 
     collapsible(target: string, option?) {
         const elem = document.querySelector(target);
-        console.log(M);
         const instance = M.Collapsible.init(elem, option);
+        return instance;
     }
     openCollapsible(instance, index) {
         instance.open(index);
     }
 
-    closeCollapsible(instance, index) {
+    closeCollapsible(instance, index?) {
         instance.close(index);
+
     }
 }

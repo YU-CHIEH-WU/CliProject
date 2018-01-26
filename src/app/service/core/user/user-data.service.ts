@@ -41,7 +41,6 @@ export class UserDataService {
   }
   clearCurrentUser() {
     this.currentUser = new User();
-    console.log(this.currentUser.userAccount);
   }
 }
 export class User {

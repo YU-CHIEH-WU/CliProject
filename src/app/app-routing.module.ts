@@ -7,6 +7,7 @@ import { BugComponent } from './bug/bug.component';
 import { CodewarComponent } from './codewar/codewar.component';
 import { IdeaListComponent } from './topic/idea/idea-list/idea-list.component';
 import { IdeaAddComponent } from './topic/idea/idea-add/idea-add.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -26,7 +27,7 @@ const routes: Routes = [
     component: BugComponent
   },
   {
-    path: 'codewar/home',
+    path: 'codewar',
     component: CodewarComponent,
     canActivate: [UserAuthService]
   },

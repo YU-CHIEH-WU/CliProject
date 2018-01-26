@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
 export class IdeaService {
   private ideaList: Idea[];
   constructor(private _http: HttpClient) { }
-  private apiurl = 'https://api.github.com/users/mralexgray/repos';
+  private apiUrl = 'https://api.github.com/users/mralexgray/repos';
 
   async getIdeaList() {
     if (!this.ideaList) {
-      this.ideaList = await this._http.get<Idea[]>(this.apiurl).toPromise();
+      this.ideaList = await this._http.get<Idea[]>(this.apiUrl).toPromise();
     }
     return this.ideaList;
   }

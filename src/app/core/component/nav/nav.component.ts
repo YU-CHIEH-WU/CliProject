@@ -16,6 +16,7 @@ export class NavComponent implements OnInit {
     isLoggedIn = false;
     error = { isAccountValid: true, isPasswordValid: true };
     currentUser = this._userAuthService.getCurrentUser();
+    userMenu: any;
     constructor(private _router: Router, private _userAuthService: UserAuthService,
         private _materialize: MaterializeService) { }
 
@@ -26,7 +27,7 @@ export class NavComponent implements OnInit {
         this._router.events.subscribe((res) => {
             this.clickedTab = this._router.url;
         });
-        this._materialize.collapsible('.user-menu');
+        this.userMenu = this._materialize.collapsible('.user-menu');
     }
     clickTab(clickedTab) {
         this.clickedTab = clickedTab;
@@ -61,5 +62,6 @@ export class NavComponent implements OnInit {
         this.isLoggedIn = false;
         this._router.navigateByUrl('home');
         this._materialize.toast('you are logout!', 3000);
+        this._materialize.closeCollapsible(this.userMenu);
     }
 }

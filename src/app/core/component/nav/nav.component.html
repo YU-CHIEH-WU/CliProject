@@ -2,40 +2,10 @@
     <li class="no-padding nav-user">
         <div class="container">
             <div class="row row-tight">
-                <div class="col s12 center-align" *ngIf="!isLoggedIn">
-                    <p class="text-tight">Not Auth User</p>
-                    <i class="large material-icons">account_circle</i>
-                    <div class="row row-tight" id="user-input">
-                        <div class="input-field input-field-tight col s12">
-                            <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" [class.invalid]="!error.isAccountValid" id="account" type="text" class="validate input-tight" required>
-                            <label for="account">Account</label>
-                        </div>
-                        <div class="input-field input-field-tight col s12">
-                            <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" [class.invalid]="!error.isPasswordValid" id="password" type="password" class="validate input-tight" required>
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="col s12 red-text" *ngIf="!error.isAccountValid || !error.isPasswordValid">
-                            <p *ngIf="!error.isAccountValid" class="valid-text">account is required</p>
-                            <p *ngIf="!error.isPasswordValid" class="valid-text">password is required</p>
-                        </div>
-                        <div class="col s5">
-                            <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-primary">Login</button>
-                        </div>
-                        <div class="col s5">
-                            <a routerLink="register" class="waves-effect waves-light btn-flat text-primary">Register</a>
-                        </div>
-                        <div class="col s2"></div>
-                    </div>
-                </div>
-                <div class="col s12 center-align" *ngIf="isLoggedIn">
-                    <p>Hello {{currentUser.userName}}</p>
-                    <div class="nav-user-photo">
-                        <img [src]="currentUser.photoUrl" alt="">
-                    </div>
-                    <div class="row row-tight">
-                        <div class="col s12">
-                            <button (click)="doLogout()" class="waves-effect waves-light btn-flat text-primary">Logout</button>
-                        </div>
+                <div class="col s12 center-align">
+                    <h6>Angular Cli Project</h6>
+                    <div class="nav-logo">
+                        <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
                     </div>
                 </div>
             </div>
@@ -59,7 +29,7 @@
             <li class="bold"><a class="collapsible-header waves-effect waves-primary">CodeWar</a>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a (click)="clickTab('/codewar/home')" [class.active]="clickedTab === '/codewar/home'" routerLink="codewar/home" class="waves-effect waves-primary">Home</a></li>
+                        <li><a (click)="clickTab('/codewar')" [class.active]="clickedTab === '/codewar'" routerLink="codewar" class="waves-effect waves-primary">Home</a></li>
                         <li><a routerLink="codewar">temp</a></li>
                         <li><a routerLink="codewar">temp</a></li>
                         <li><a routerLink="codewar">temp</a></li>
@@ -69,3 +39,42 @@
         </ul>
     </li>
 </ul>
+<nav class="main-nav">
+    <div class="nav-wrapper">
+        <p class="brand-logo">{{clickedTab}}</p>
+        <ul class="right hide-on-med-and-down">
+            <li *ngIf="!isLoggedIn">
+                <div class="row">
+                    <div class="col tight s2"></div>
+                    <div class="input-field input-field-tight col tight s3">
+                        <input [(ngModel)]="loginAccount" (focusout)="validInput('Account')" [class.invalid]="!error.isAccountValid" placeholder="account" id="account" type="text" class="validate input-tight" required>
+                    </div>
+                    <div class="input-field input-field-tight col tight s3">
+                        <input [(ngModel)]="loginPassword" (focusout)="validInput('Password')" [class.invalid]="!error.isPasswordValid" placeholder="password" id="password" type="password" class="validate input-tight" required>
+                    </div>
+                    <div class="col tight s2">
+                        <button (click)="doLogin()" class="waves-effect waves-light btn-flat text-primary">Login</button>
+                    </div>
+                    <div class="col tight s2">
+                        <a routerLink="Register" class="link-ghost">Register</a>
+                    </div>
+                </div>
+            </li>
+            <li *ngIf="isLoggedIn">Hello {{currentUser.userName}}</li>
+            <li *ngIf="isLoggedIn">
+                <div class="nav-user-photo col tight s3">
+                    <img [src]="currentUser.photoUrl" alt="">
+                </div>
+            </li>
+            <li *ngIf="isLoggedIn">
+                <ul>
+                    <li><i class="material-icons">account_balance_wallet</i></li>
+                    <li><i class="material-icons">account_box</i></li>
+                    <li><i class="material-icons">add_to_photos</i></li>
+                    <li><i class="material-icons">settings</i></li>
+                </ul>
+            </li>
+            <li *ngIf="isLoggedIn"><button (click)="doLogout()" class="waves-effect waves-light btn-flat text-primary">Logout</button></li>
+        </ul>
+    </div>
+</nav>
