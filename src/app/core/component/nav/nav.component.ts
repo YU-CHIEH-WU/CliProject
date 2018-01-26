@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MaterializeService } from '../../../service/shared/materialize/materialize.service';
-import { UserAuthService } from '../../../service/core/user/user-auth.service';
+import { UserService } from '../../../service/core/user/user.service';
 
 @Component({
     selector: 'app-nav',
@@ -15,15 +15,15 @@ export class NavComponent implements OnInit {
     loginPassword: string;
     isLoggedIn = false;
     error = { isAccountValid: true, isPasswordValid: true };
-    currentUser = this._userAuthService.getCurrentUser();
+    currentUser = this._userService.getCurrentUser();
     userMenu: any;
-    constructor(private _router: Router, private _userAuthService: UserAuthService,
+    constructor(private _router: Router, private _userService: UserService,
         private _materialize: MaterializeService) { }
 
     ngOnInit() {
         this.loginAccount = 'admin';
         this.loginPassword = '000000';
-        this.isLoggedIn = this._userAuthService.isLoggedIn();
+        this.isLoggedIn = this._userService.isLoggedIn();
         this._router.events.subscribe((res) => {
             this.clickedTab = this._router.url;
         });
@@ -46,9 +46,9 @@ export class NavComponent implements OnInit {
             return false;
         }
         if (this.error.isAccountValid && this.error.isPasswordValid) {
-            const result = this._userAuthService.doLogin(this.loginAccount, this.loginPassword);
+            const result = this._userService.doLogin(this.loginAccount, this.loginPassword);
             if (result.status) {
-                this.currentUser = this._userAuthService.getCurrentUser();
+                this.currentUser = this._userService.getCurrentUser();
                 this.isLoggedIn = true;
             }
             this._materialize.toast(result.message, 3000);
@@ -56,7 +56,7 @@ export class NavComponent implements OnInit {
         }
     }
     doLogout() {
-        this._userAuthService.doLogout();
+        this._userService.doLogout();
         this.loginAccount = '';
         this.loginPassword = '';
         this.isLoggedIn = false;

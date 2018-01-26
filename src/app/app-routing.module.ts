@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserAuthService } from './service/core/user/user-auth.service';
+import { UserService } from './service/core/user/user.service';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BugComponent } from './bug/bug.component';
@@ -29,17 +29,17 @@ const routes: Routes = [
   {
     path: 'codewar',
     component: CodewarComponent,
-    canActivate: [UserAuthService]
+    canActivate: [UserService]
   },
   {
     path: 'topic/idea/list',
     component: IdeaListComponent,
-    canActivate: [UserAuthService]
+    canActivate: [UserService]
   },
   {
     path: 'topic/idea/add',
     component: IdeaAddComponent,
-    canActivate: [UserAuthService]
+    canActivate: [UserService]
   },
   // change to 404
   {

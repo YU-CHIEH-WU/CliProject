@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 // core service
-import { UserAuthService } from '../service/core/user/user-auth.service';
-import { UserDataService } from '../service/core/user/user-data.service';
+import { UserService } from '../service/core/user/user.service';
 // core component
 import { NavComponent } from './component/nav/nav.component';
 
@@ -23,7 +22,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [UserAuthService, UserDataService]
+      providers: [UserService]
     };
   }
 }
