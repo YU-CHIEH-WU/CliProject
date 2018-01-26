@@ -16,7 +16,7 @@
     <li class="bold menu"><a (click)="clickTab('/bug')" [class.active]="clickedTab === '/bug'" routerLink="bug" class="waves-effect waves-primary">Bug Record</a></li>
     <li class="no-padding menu" [hidden]="!isLoggedIn">
         <ul class="collapsible user-menu">
-            <li class="bold"><a class="collapsible-header waves-effect waves-primary">Topic</a>
+            <li *ngIf="checkIsAdmin()" class="bold"><a class="collapsible-header waves-effect waves-primary">Topic</a>
                 <div class="collapsible-body">
                     <ul>
                         <li><a (click)="clickTab('/topic/idea/list')" [class.active]="clickedTab === '/topic/idea/list'" routerLink="topic/idea/list" class="waves-effect waves-primary">IdeaList</a></li>
@@ -60,10 +60,10 @@
                     </div>
                 </div>
             </li>
-            <li *ngIf="isLoggedIn">Hello {{currentUser.userName}}</li>
+            <li *ngIf="isLoggedIn">Hello {{currentUserInfo.userName}}</li>
             <li *ngIf="isLoggedIn">
                 <div class="nav-user-photo col tight s3">
-                    <img [src]="currentUser.photoUrl" alt="">
+                    <img [src]="currentUserInfo.photoUrl" alt="">
                 </div>
             </li>
             <li *ngIf="isLoggedIn">

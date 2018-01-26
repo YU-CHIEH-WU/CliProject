@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MaterializeService } from '../../../service/shared/materialize/materialize.service';
-import { UserService } from '../../../service/core/user/user.service';
+import { UserService, UserInfo } from '../../../service/core/user/user.service';
 
 @Component({
     selector: 'app-nav',
@@ -15,24 +15,25 @@ export class NavComponent implements OnInit {
     loginPassword: string;
     isLoggedIn = false;
     error = { isAccountValid: true, isPasswordValid: true };
-    currentUser = this._userService.getCurrentUser();
+    currentUserInfo: UserInfo;
     userMenu: any;
     constructor(private _router: Router, private _userService: UserService,
         private _materialize: MaterializeService) { }
 
     ngOnInit() {
-        this.loginAccount = 'admin';
-        this.loginPassword = '000000';
         this.isLoggedIn = this._userService.isLoggedIn();
+        if (this.isLoggedIn) {
+            this.currentUserInfo = this._userService.getCurrentUserInfo();
+        }
         this._router.events.subscribe((res) => {
             this.clickedTab = this._router.url;
         });
         this.userMenu = this._materialize.collapsible('.user-menu');
     }
-    clickTab(clickedTab) {
+    clickTab(clickedTab): void {
         this.clickedTab = clickedTab;
     }
-    validInput(model: string) {
+    validInput(model: string): void {
         if (this['login' + model] === '') {
             this.error['is' + model + 'Valid'] = false;
         } else {
@@ -48,9 +49,8 @@ export class NavComponent implements OnInit {
         if (this.error.isAccountValid && this.error.isPasswordValid) {
             const result = this._userService.doLogin(this.loginAccount, this.loginPassword);
             if (result.status) {
-                this.currentUser = this._userService.getCurrentUser();
+                this.currentUserInfo = this._userService.getCurrentUserInfo();
                 this.isLoggedIn = true;
-                console.log(result.message);
                 this._materialize.toast(result.message, 3000);
             } else {
                 this._materialize.toast(result.message, 3000, 'danger');
@@ -63,7 +63,15 @@ export class NavComponent implements OnInit {
         this.loginAccount = '';
         this.loginPassword = '';
         this.isLoggedIn = false;
+        this.currentUserInfo = new UserInfo();
         this._router.navigateByUrl('home');
         this._materialize.closeCollapsible(this.userMenu);
+    }
+    checkIsAdmin() {
+        if (this._userService.checkIsAdmin()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
