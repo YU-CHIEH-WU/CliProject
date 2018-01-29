@@ -11,12 +11,12 @@
             </div>
         </div>
     </li>
-    <li class="no-padding menu" [hidden]="!isLoggedIn">
+    <li class="no-padding menu">
         <ul class="collapsible user-menu">
             <li class="bold menu"><a (click)="clickTab('/home')" [class.active]="clickedTab === '/home'" routerLink="" class="collapsible-header waves-effect waves-primary">Home</a></li>
             <li class="bold menu"><a (click)="clickTab('/about')" [class.active]="clickedTab === '/about'" routerLink="about" class="collapsible-header waves-effect waves-primary">About</a></li>
             <li class="bold menu"><a (click)="clickTab('/bug')" [class.active]="clickedTab === '/bug'" routerLink="bug" class="collapsible-header waves-effect waves-primary">Bug Record</a></li>
-            <li *ngIf="checkIsAdmin()" class="bold"><a (click)="clickTab('/topic')" [class.active]="clickedTab === '/topic'" routerLink="topic" class="collapsible-header waves-effect waves-primary">Topic</a>
+            <li *ngIf="isAdmin" class="bold"><a (click)="clickTab('/topic')" [class.active]="clickedTab === '/topic'" routerLink="topic" class="collapsible-header waves-effect waves-primary">Topic</a>
                 <div class="collapsible-body">
                     <ul>
                         <li><a (click)="clickTab('/topic/idea/list')" [class.active]="clickedTab === '/topic/idea/list'" routerLink="topic/idea/list" class="waves-effect waves-primary">IdeaList</a></li>
@@ -26,7 +26,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="bold"><a (click)="clickTab('/codewar')" [class.active]="clickedTab === '/codewar'" routerLink="codewar" class="collapsible-header waves-effect waves-primary">CodeWar</a>
+            <li *ngIf="isLoggedIn" class="bold"><a (click)="clickTab('/codewar')" [class.active]="clickedTab === '/codewar'" routerLink="codewar" class="collapsible-header waves-effect waves-primary">CodeWar</a>
                 <div class="collapsible-body">
                     <ul>
                         <li><a (click)="clickTab('/codewar/list')" [class.active]="clickedTab === '/codewar/list'" routerLink="codewar/list" class="waves-effect waves-primary">List</a></li>

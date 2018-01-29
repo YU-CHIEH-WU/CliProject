@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MaterializeService } from '../../../service/shared/materialize/materialize.service';
-import { UserService, UserInfo } from '../../../service/core/user/user.service';
+import { UserService, UserInfo } from '../../../service/core/user/user.test-service';
 
 @Component({
     selector: 'app-nav',
@@ -14,19 +14,22 @@ export class NavComponent implements OnInit {
     loginAccount: string;
     loginPassword: string;
     isLoggedIn = false;
+    isAdmin: boolean;
     error = { isAccountValid: true, isPasswordValid: true };
-    currentUserInfo: UserInfo;
+    currentUserInfo: UserInfo = { userName: '', photoUrl: '' };
     userMenu: any;
     loadCount: number;
     constructor(private _router: Router, private _userService: UserService,
         private _materialize: MaterializeService) { }
 
-    ngOnInit() {
+    async ngOnInit() {
         this.loadCount = 0;
         this.userMenu = this._materialize.collapsible('.user-menu');
         this.isLoggedIn = this._userService.isLoggedIn();
         if (this.isLoggedIn) {
-            this.currentUserInfo = this._userService.getCurrentUserInfo();
+            const userInfo: any = await this._userService.getCurrentUserInfo();
+            this.currentUserInfo = userInfo;
+            this.checkIsAdmin();
         }
         this._router.events.subscribe((res) => {
             if (res instanceof NavigationEnd) {
@@ -44,16 +47,17 @@ export class NavComponent implements OnInit {
             this.error['is' + model + 'Valid'] = true;
         }
     }
-    doLogin() {
+    async doLogin() {
         if (this.loginAccount === '' && this.loginPassword === '') {
             this.error.isAccountValid = false;
             this.error.isPasswordValid = false;
             return false;
         }
         if (this.error.isAccountValid && this.error.isPasswordValid) {
-            const result = this._userService.doLogin(this.loginAccount, this.loginPassword);
+            const result = await this._userService.doLogin(this.loginAccount, this.loginPassword);
             if (result.status) {
-                this.currentUserInfo = this._userService.getCurrentUserInfo();
+                const userInfo: any = await this._userService.getCurrentUserInfo();
+                this.currentUserInfo = userInfo;
                 this.isLoggedIn = true;
                 this._materialize.toast(result.message, 3000);
             } else {
@@ -71,11 +75,11 @@ export class NavComponent implements OnInit {
         this._router.navigateByUrl('home');
         this._materialize.closeCollapsible(this.userMenu);
     }
-    checkIsAdmin() {
-        if (this._userService.checkIsAdmin()) {
-            return true;
-        } else {
-            return false;
+    async checkIsAdmin() {
+        console.log('navcheckisadmin call');
+        if (this.isAdmin === undefined) {
+            const result: any = await this._userService.checkIsAdmin();
+            this.isAdmin = result;
         }
     }
 }

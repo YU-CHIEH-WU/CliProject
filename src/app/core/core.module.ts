@@ -6,7 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
 // core service
-import { UserService } from '../service/core/user/user.service';
+// import { UserService } from '../service/core/user/user.service';
+import { UserService } from '../service/core/user/user.test-service';
+import { UserBackendService } from '../service/core/user/user.backend-service';
 // core component
 import { NavComponent } from './component/nav/nav.component';
 
@@ -23,7 +25,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [CookieService, UserService]
+      providers: [CookieService, UserService, UserBackendService]
     };
   }
 }

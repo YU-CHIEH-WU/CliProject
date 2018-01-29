@@ -19,9 +19,7 @@ export class MaterializeService {
         instance.open(index);
     }
 
-    closeCollapsible(target, index?) {
-        const instance = M.Collapsible.getInstance(target);
+    closeCollapsible(instance, index?) {
         instance.close(index);
-
     }
 }

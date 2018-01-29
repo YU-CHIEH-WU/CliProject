@@ -10,7 +10,6 @@ export class IdeaService {
   async getIdeaList() {
     if (!this.ideaList) {
       this.ideaList = await this._http.get<Idea[]>(this.apiUrl).toPromise();
-      console.log(this.ideaList[0]);
     }
     return this.ideaList;
   }
