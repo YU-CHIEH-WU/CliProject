@@ -14,11 +14,13 @@ export class MaterializeService {
         const instance = M.Collapsible.init(elem, option);
         return instance;
     }
-    openCollapsible(instance, index) {
+    openCollapsible(target, index) {
+        const instance = M.Collapsible.getInstance(target);
         instance.open(index);
     }
 
-    closeCollapsible(instance, index?) {
+    closeCollapsible(target, index?) {
+        const instance = M.Collapsible.getInstance(target);
         instance.close(index);
 
     }

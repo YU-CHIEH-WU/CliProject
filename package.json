@@ -6,7 +6,8 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build --prod",
-        "test": "ng test",
+        "test": "ng test --browser ChromeHeadless --single-run",
+        "watch": "ng test --browser ChromeHeadless",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "deploy": "ng build --prod --base-href='https://yu-chieh-wu.github.io/CliProject/' && angular-cli-ghpages"

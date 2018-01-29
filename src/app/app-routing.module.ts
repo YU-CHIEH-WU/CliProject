@@ -5,9 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { BugComponent } from './bug/bug.component';
-import { CodewarComponent } from './codewar/codewar.component';
-import { IdeaListComponent } from './topic/idea/idea-list/idea-list.component';
-import { IdeaAddComponent } from './topic/idea/idea-add/idea-add.component';
 
 const routes: Routes = [
   {
@@ -29,17 +26,12 @@ const routes: Routes = [
   },
   {
     path: 'codewar',
-    component: CodewarComponent,
+    loadChildren: './codewar/codewar.module#CodewarModule',
     canActivate: [UserService]
   },
   {
-    path: 'topic/idea/list',
-    component: IdeaListComponent,
-    canActivate: [UserService]
-  },
-  {
-    path: 'topic/idea/add',
-    component: IdeaAddComponent,
+    path: 'topic',
+    loadChildren: './topic/topic.module#TopicModule',
     canActivate: [UserService]
   },
   {

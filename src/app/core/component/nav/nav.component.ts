@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { MaterializeService } from '../../../service/shared/materialize/materialize.service';
 import { UserService, UserInfo } from '../../../service/core/user/user.service';
 
@@ -17,18 +17,22 @@ export class NavComponent implements OnInit {
     error = { isAccountValid: true, isPasswordValid: true };
     currentUserInfo: UserInfo;
     userMenu: any;
+    loadCount: number;
     constructor(private _router: Router, private _userService: UserService,
         private _materialize: MaterializeService) { }
 
     ngOnInit() {
+        this.loadCount = 0;
+        this.userMenu = this._materialize.collapsible('.user-menu');
         this.isLoggedIn = this._userService.isLoggedIn();
         if (this.isLoggedIn) {
             this.currentUserInfo = this._userService.getCurrentUserInfo();
         }
         this._router.events.subscribe((res) => {
-            this.clickedTab = this._router.url;
+            if (res instanceof NavigationEnd) {
+                this.clickedTab = this._router.url;
+            }
         });
-        this.userMenu = this._materialize.collapsible('.user-menu');
     }
     clickTab(clickedTab): void {
         this.clickedTab = clickedTab;

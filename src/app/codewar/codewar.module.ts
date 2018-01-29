@@ -4,8 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 
-// private shared service
+import { CodewarRouting } from './codewar-routing.module';
 
+// private shared service
+import { ListComponent } from './list/list.component';
 import { CodewarComponent } from './codewar.component';
 import { XocompareComponent } from './xocompare/xocompare.component';
 import { SquaredmirrorComponent } from './squaredmirror/squaredmirror.component';
@@ -18,6 +20,7 @@ import { AveragesComponent } from './averages/averages.component';
     CommonModule,
     FormsModule,
     SharedModule,
+    CodewarRouting
   ],
   declarations: [
     CodewarComponent,
@@ -25,6 +28,7 @@ import { AveragesComponent } from './averages/averages.component';
     SquaredmirrorComponent,
     PincodeComponent,
     LongestComponent,
-    AveragesComponent]
+    AveragesComponent,
+    ListComponent]
 })
 export class CodewarModule { }
